@@ -1,0 +1,41 @@
+name: Python CI Pipeline
+
+# 1. TRIGGER: run this workflow whenever code is pushed
+#    or a pull request is opened against the main branch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    # 2. RUNNER: the virtual machine that will run our steps
+    runs-on: ubuntu-latest
+
+    steps:
+      # 3. Get our repo's code onto the runner
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 4. Install Python on the runner
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 5. Install our project's dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 6. Lint: check code style/quality
+      - name: Run linter (flake8)
+        run: flake8 app.py test_app.py --max-line-length=100
+
+      # 7. Test: run our unit tests
+      - name: Run tests (pytest)
+        run: pytest -v
+
+      # 8. "Deploy" step - simulated, just to show where it would go
+      - name: Simulate deployment
+        run: echo "✅ All checks passed! This is where deployment would happen."
