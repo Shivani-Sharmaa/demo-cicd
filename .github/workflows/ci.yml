@@ -4,9 +4,9 @@ name: Python CI Pipeline
 #    or a pull request is opened against the main branch
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build-and-test:
