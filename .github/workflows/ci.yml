@@ -16,7 +16,7 @@ jobs:
     steps:
       # 3. Get our repo's code onto the runner
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       # 4. Install Python on the runner
       - name: Set up Python
@@ -26,7 +26,7 @@ jobs:
 
       # 5. Install our project's dependencies
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirement.txt
 
       # 6. Lint: check code style/quality
       - name: Run linter (flake8)
