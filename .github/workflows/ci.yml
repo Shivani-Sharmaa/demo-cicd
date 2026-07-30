@@ -30,7 +30,7 @@ jobs:
 
       # 6. Lint: check code style/quality
       - name: Run linter (flake8)
-        run: flake8 app.py test_app.py --max-line-length=100
+        run: flake8 app.py app_test.py --max-line-length=100
 
       # 7. Test: run our unit tests
       - name: Run tests (pytest)
