@@ -35,11 +35,10 @@ jobs:
 
       - name: Uses saecret safely
         env: 
-          API_KEY: ${{secrets.FAKE_SECRET}}
+          RUNNER_NOTE: "demo note"
         run: |
           echo "our building stage is: $BUILD_STAGE"
-          echo "length of the key is : ${#API_KEY} characters"
-          echo "value of key is: $API_KEY"
+          echo "$RUNNER_NOTE"
          
 
       # 6. Lint: check code style/quality
