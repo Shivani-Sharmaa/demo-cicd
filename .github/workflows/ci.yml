@@ -33,12 +33,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirement.txt
 
-      - name: Environment variables
+      - name: Uses saecret safely
         env: 
-          RUNNER_NOTE: "just a demo value"
+          API_KEY: ${{secrets.FAKE_SECRET}}
         run: |
           echo "our building stage is: $BUILD_STAGE"
-          echo "runner note for this demo is: $RUNNER_NOTE"
+          echo "length of the key is : ${#API_KEY} characters
          
 
       # 6. Lint: check code style/quality
