@@ -38,7 +38,7 @@ jobs:
           API_KEY: ${{secrets.FAKE_SECRET}}
         run: |
           echo "our building stage is: $BUILD_STAGE"
-          echo "length of the key is : ${#API_KEY} characters
+          echo "length of the key is : ${#API_KEY} characters"
          
 
       # 6. Lint: check code style/quality
