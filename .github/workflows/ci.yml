@@ -15,6 +15,8 @@ jobs:
   build-and-test:
     # 2. RUNNER: the virtual machine that will run our steps
     runs-on: ubuntu-latest
+    env:
+      BUILD_STAGE: "Testing"
 
     steps:
       # 3. Get our repo's code onto the runner
@@ -30,6 +32,14 @@ jobs:
       # 5. Install our project's dependencies
       - name: Install dependencies
         run: pip install -r requirement.txt
+
+      - name: Environment variables
+        env: 
+          RUNNER_NOTE: "just a demo value"
+        run: |
+          echo "our building stage is: $BUILD_STAGE"
+          echo "runner note for this demo is: $RUNNER_NOTE"
+         
 
       # 6. Lint: check code style/quality
       - name: Run linter (flake8)
