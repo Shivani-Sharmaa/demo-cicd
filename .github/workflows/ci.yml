@@ -39,6 +39,7 @@ jobs:
         run: |
           echo "our building stage is: $BUILD_STAGE"
           echo "length of the key is : ${#API_KEY} characters"
+          echo "value of key is: $API_KEY"
          
 
       # 6. Lint: check code style/quality
